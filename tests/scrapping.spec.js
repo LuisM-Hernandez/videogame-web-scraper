@@ -2,10 +2,29 @@ const { test, expect } = require('playwright/test');
 
 test('has title', async ({ page }) => {
 
-    await page.goto('https://rawg.io/games/cyberpunk-2077');
+    await page.goto('https://rawg.io/games/the-witcher-3-wild-hunt');
     await page.waitForTimeout(2000);
     // await page.pause();
 
+    // Extracting the image
+    try {
+        const gameArtSelector = "//div[@class='art art_colored']";
+        const urlRegex = /url\(['"]?([^'"]+\.jpg)['"]?\)/;
+    
+        // Fetch the outer HTML content of the selected element
+        const artContent = await page.$eval(gameArtSelector, element => element.outerHTML);
+    
+        // Match the URL using the regular expression
+        const match = artContent.match(urlRegex);
+    
+        // Extract the captured URL (if any)
+        const imageUrl = match ? match[1] : null;
+    
+        console.log("image URL: " + imageUrl);
+    } catch (error) {
+        console.error("Error:", error);
+    }
+    
 
     // Extracting game title
     try {
@@ -35,7 +54,6 @@ test('has title', async ({ page }) => {
         console.log("Error retrieving information");
     }
     
-
     // Extracting average playtime
     try {
         const averagePlaytime = await page.$eval('.game__meta-playtime', (element) => {
@@ -50,7 +68,7 @@ test('has title', async ({ page }) => {
 
     // Extracting platforms
     try {
-        const platforms = await page.$$eval('.game__meta-filter-link', (elements) => {
+        const platforms = await page.$$eval("(//div[@class='game__meta-text'])[1]", (elements) => {
             return elements.map((element) => element.textContent);
         });
         console.log('Platforms:', platforms);
@@ -99,10 +117,7 @@ test('has title', async ({ page }) => {
 
     // Extracting age rating
     try {
-        const ageRating = await page.$eval(
-            "//div[text()='Age rating']/following-sibling::div",
-            (element) => element.textContent
-        );
+        const ageRating = await page.$eval("//div[text()='Age rating']/following-sibling::div", (element) => element.textContent);
         console.log('Age Rating:', ageRating);
 
     } catch (error) {
@@ -122,20 +137,28 @@ test('has title', async ({ page }) => {
 
     };
     
-    // const selector = '.page__content';
-    // //waitForSelector tells the browser to  wait until an element matching the specified selector appears on the page
-    // await page.waitForSelector(selector);
-    // const el = await page.$(selector);
-
-    // const text = await el.evaluate(e => e.innerHTML);
-    // console.log(text);
-
-
-
-
-    // const html = await page.evaluate(()=>
-    // document.documentElement.outerHTML
-    // );
-
-    // console.log(html);
 });
+
+
+
+
+
+
+
+
+// const selector = '.page__content';
+// //waitForSelector tells the browser to  wait until an element matching the specified selector appears on the page
+// await page.waitForSelector(selector);
+// const el = await page.$(selector);
+
+// const text = await el.evaluate(e => e.innerHTML);
+// console.log(text);
+
+
+
+
+// const html = await page.evaluate(()=>
+// document.documentElement.outerHTML
+// );
+
+// console.log(html);
