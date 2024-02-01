@@ -1,10 +1,50 @@
 const { test, expect } = require('playwright/test');
 
 test('has title', async ({ page }) => {
-
-    await page.goto('https://rawg.io/games/the-witcher-3-wild-hunt');
+    test.setTimeout(86400000);
+    await page.goto('https://rawg.io/games/grand-theft-auto-v');
     await page.waitForTimeout(2000);
+    // await page.locator('.mode-select__items > div:nth-child(2)').click();
+    await page.waitForTimeout(3000);
+    // await page.waitForTimeout(4000);
     // await page.pause();
+
+
+    // await page.getByRole('link', { name: 'Grand Theft Auto Vexceptional' }).click({
+    //     modifiers: ['Control']
+    //   });
+      // const page6 = await context.newPage();
+      // await page6.goto('https://rawg.io/games/grand-theft-auto-v');
+    
+
+
+
+
+
+      // await page.locator('.mode-select__items > div:nth-child(2)').click();
+      // await page.locator('.load-more__button').click();
+  
+      // try {
+      //     const gameListSelector = "#load-more-button";
+          
+      //     // const gameListOuterHTML = await page.$eval(gameListSelector, (element) => element.outerHTML);
+      
+      //     const childDivsContent = await page.$$eval(`${gameListSelector} > div`, (divs) => {
+  
+      //     //   return divs.length
+            
+      //     //   divs.map((div) => div.textContent.trim()); // Adjust this to extract the information you need
+      //     });
+          
+      //     // console.log("Outer HTML of #load-more-button:", gameListOuterHTML);
+      //     console.log("Content of child divs:", childDivsContent);
+          
+      // } catch (error) {
+          
+      // }
+
+   
+
 
     // Extracting the image
     try {
@@ -19,7 +59,7 @@ test('has title', async ({ page }) => {
     
         // Extract the captured URL (if any)
         const imageUrl = match ? match[1] : null;
-    
+        // await page.goto(imageUrl);
         console.log("image URL: " + imageUrl);
     } catch (error) {
         console.error("Error:", error);
