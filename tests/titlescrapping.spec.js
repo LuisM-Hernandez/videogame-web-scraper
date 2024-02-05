@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 
 test('title scrape', async ({ page }) => {
   test.setTimeout(86400000);
-    await page.goto('https://rawg.io/games/playstation5');
+    await page.goto('https://rawg.io/games/playstation4');
     await page.waitForTimeout(2000);
     await page.locator('.mode-select__items > div:nth-child(2)').click();
     await page.waitForTimeout(3000);

@@ -8,7 +8,7 @@ test("scrape and take", async ({ page }) => {
   await page.pause();
 
   // Reads the txt file
-  const filePath = "./PS5 list order/PS5 List E - L.txt";
+  const filePath = "./Game Lists/PS4/output.txt";
   const titles = fs
     .readFileSync(filePath, "utf-8")
     .split("\n")
