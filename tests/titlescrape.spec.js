@@ -3,7 +3,7 @@ const { test, expect } = require("@playwright/test");
 
 test("title scrape", async ({ page }) => {
   test.setTimeout(86400000);
-  await page.goto("https://rawg.io/games/neogeo");
+  await page.goto("https://rawg.io/games/playstation1/1976");
   await page.waitForTimeout(2000);
   await page.locator(".mode-select__items > div:nth-child(2)").click();
   await page.waitForTimeout(1000);
@@ -19,7 +19,7 @@ test("title scrape", async ({ page }) => {
   const jsonFileNameArray = 'list_array.json';
   const jsonFileNameIndividual = 'list_individual.json';
 
-  while (childrenCount !== 123) {
+  while (childrenCount !== 1666) {
     await page.waitForTimeout(2000);
     await loadBtn.click();
     await page.waitForTimeout(3000);
