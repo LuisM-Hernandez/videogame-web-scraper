@@ -2,7 +2,7 @@
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   ## Description
-  Automation made with Microsoft Playwright that have two functional tests using the website RAWG.io. The title scraping test goes through a list of games and it returns a txt file with the titles. The search and take test iterate through the list of titles on a txt document, write them on the searchbar and it clicks on the same name in suggested options, from there it grabs the following information and it writes it as a JSON file (Title, about, average playtime, platforms, genre, release date, developer, publisher, age rating and tags).
+  Automation made with Microsoft Playwright that has two functional tests using the website RAWG.io. The title scraping test goes through a list of games and it returns a txt file with the titles. The search and take test iterate through the list of titles on a txt document, write them on the searchbar and it clicks on the same name in suggested options, from there it grabs the following information and it writes it as a JSON file (Title, about, average playtime, platforms, genre, release date, developer, publisher, age rating and tags).
 
   A video demo of the automation showcasing the functionality can be seen here [videogame-web-scraper](https://drive.google.com/file/d/1iTRzXJjTPPMQrLoiLXyWaTxd14fP56T6/view?usp=drive_link)
 
