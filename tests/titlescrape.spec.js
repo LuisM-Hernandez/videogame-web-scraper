@@ -9,7 +9,7 @@ test('title scrape', async ({ page }) => {
 
     const fs = require('fs').promises;
 
-    await page.pause()
+    // await page.pause()
     try {
         const gameListSelector = "#load-more-button";
         const titles = [];
